@@ -15,18 +15,18 @@ icon: icon.png
 services:
   mywebserver:
     description: "A webserver in python"
-    start: python bin/manage.py runserver 8090
+    start: python bin/manage.py runserver 0.0.0.0:8090
 
 parts:
   django:
     plugin: python2
     source: .
-# requirements: ./requirements.txt
-    stage-packages:
-      - python-django
-      - python-djangorestframework
-      - python
-      - libpython2.7-stdlib      
+    requirements: ./requirements.txt
+#    stage-packages:
+#      - python-django
+#      - python-djangorestframework
+#      - python
+#      - libpython2.7-stdlib      
 
   restapi:
     plugin: copy
